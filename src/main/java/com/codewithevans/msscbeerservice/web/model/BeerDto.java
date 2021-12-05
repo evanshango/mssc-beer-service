@@ -16,12 +16,12 @@ import java.util.UUID;
 public class BeerDto {
 
     private UUID id;
-    private Integer version;
+    private int version;
     private OffsetDateTime createdDate;
     private OffsetDateTime lastModified;
     private String beerName;
     private BeerStyleEnum beerStyle;
-    private Long upc;
+    private long upc;
     private BigDecimal price;
-    private Integer quantityOnHand;
+    private int quantityOnHand;
 }
