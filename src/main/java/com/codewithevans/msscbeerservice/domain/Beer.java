@@ -25,15 +25,15 @@ public class Beer {
     private UUID id;
 
     @Version
-    private long version;
+    private Long version;
     private String beerName;
     private String beerStyle;
 
     @Column(unique = true)
-    private long upc;
+    private Long upc;
     private BigDecimal price;
-    private int minOnHand;
-    private int quantityToBrew;
+    private Integer minOnHand;
+    private Integer quantityToBrew;
 
     @CreationTimestamp
     @Column(updatable = false)
