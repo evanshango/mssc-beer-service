@@ -41,12 +41,10 @@ class BeerControllerTest {
         BeerDto beerDto = getValidBeerDto();
         String beerDtoJson = mapper.writeValueAsString(beerDto);
 
-        var response = mockMvc.perform(post("/api/v1/beers")
+        mockMvc.perform(post("/api/v1/beers")
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(beerDtoJson)
         ).andExpect(status().isCreated()).andReturn();
-
-        System.out.println(response.getResponse().getStatus());
     }
 
     @Test
