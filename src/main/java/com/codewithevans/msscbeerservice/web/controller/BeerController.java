@@ -2,6 +2,7 @@ package com.codewithevans.msscbeerservice.web.controller;
 
 import com.codewithevans.msscbeerservice.services.BeerService;
 import com.codewithevans.msscbeerservice.web.model.BeerDto;
+import lombok.AllArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -10,9 +11,9 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.UUID;
 
+@AllArgsConstructor
 @RestController
 @RequestMapping("/api/v1/beers")
-@RequiredArgsConstructor
 public class BeerController {
 
     private final BeerService beerService;
