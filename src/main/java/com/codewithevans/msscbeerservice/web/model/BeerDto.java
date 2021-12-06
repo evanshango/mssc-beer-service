@@ -21,26 +21,19 @@ public class BeerDto {
 
     @Null
     private UUID id;
-
     @Null
     private int version;
-
     @Null
-    private OffsetDateTime createdDate;
-
+    private OffsetDateTime createdAt;
     @Null
-    private OffsetDateTime lastModified;
-
+    private OffsetDateTime updatedAt;
     @NotBlank
     private String beerName;
-
     @NotNull
     private BeerStyleEnum beerStyle;
-
     @Positive
     @NotNull
     private long upc;
-
     @Positive
     @NotNull
     private BigDecimal price;
