@@ -23,6 +23,9 @@ spring:
   cloud:
     compatibility-verifier:
       enabled: false
+  cache:
+    jcache:
+      config: classpath:ehcache.xml
 logging:
   level:
     com.codewithevans: debug

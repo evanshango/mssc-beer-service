@@ -9,6 +9,7 @@ import com.codewithevans.msscbeerservice.web.model.BeerPagedList;
 import com.codewithevans.msscbeerservice.web.model.BeerStyleEnum;
 import lombok.RequiredArgsConstructor;
 import lombok.val;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
@@ -25,9 +26,12 @@ public class BeerServiceImpl implements BeerService {
     private final BeerRepository beerRepository;
     private final BeerMapper beerMapper;
 
+    @Cacheable(cacheNames = "beerCache", key = "#beerId", condition = "#showInventoryOnHand == false")
     @Override
-    public BeerDto getBeerById(UUID beerId) {
-        return beerMapper.beerToBeerDto(
+    public BeerDto getBeerById(UUID beerId, Boolean showInventoryOnHand) {
+        return showInventoryOnHand ? beerMapper.beerToBeerDtoWithInventory(
+                beerRepository.findById(beerId).orElseThrow(NotFoundException::new)
+        ) : beerMapper.beerToBeerDto(
                 beerRepository.findById(beerId).orElseThrow(NotFoundException::new)
         );
     }
@@ -53,6 +57,7 @@ public class BeerServiceImpl implements BeerService {
         );
     }
 
+    @Cacheable(cacheNames = "beerListCache", condition = "#showInventoryOnHand == false")
     @Override
     public BeerPagedList listBeers(
             String beerName, BeerStyleEnum beerStyle, PageRequest pageRequest, Boolean showInventoryOnHand
@@ -73,11 +78,6 @@ public class BeerServiceImpl implements BeerService {
             beerPage = beerRepository.findAll(pageRequest);
         }
 
-//        beerPagedList = new BeerPagedList(beerPage
-//                .getContent().stream().map(beerMapper::beerToBeerDtoWithInventory).collect(Collectors.toList()),
-//                PageRequest.of(beerPage.getPageable().getPageNumber(), beerPage.getPageable().getPageSize()),
-//                beerPage.getTotalElements()
-//        );
         if (showInventoryOnHand) {
             beerPagedList = new BeerPagedList(beerPage
                     .getContent().stream().map(beerMapper::beerToBeerDtoWithInventory).collect(Collectors.toList()),
