@@ -12,7 +12,9 @@ public abstract class BeerMapperDecorator implements BeerMapper {
     private BeerMapper mapper;
 
     @Autowired
-    public void setBeerInventoryService(@Qualifier("beerInventoryServiceFeignImpl") BeerInventoryService beerInventoryService) {
+    public void setBeerInventoryService(
+            @Qualifier("beerInventoryServiceRestTemplateImpl") BeerInventoryService beerInventoryService
+    ) {
         this.beerInventoryService = beerInventoryService;
     }
 

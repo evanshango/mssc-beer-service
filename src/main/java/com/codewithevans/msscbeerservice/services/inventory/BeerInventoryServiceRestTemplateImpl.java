@@ -9,7 +9,6 @@ import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
 import java.util.List;
@@ -37,7 +36,7 @@ public class BeerInventoryServiceRestTemplateImpl implements BeerInventoryServic
             @Value("${sfg.brewery.inventory-password}") String inventoryPassword
     ) {
         this.restTemplate = restTemplateBuilder
-                .basicAuthentication(inventoryUser, inventoryPassword)
+//                .basicAuthentication(inventoryUser, inventoryPassword)
                 .build();
     }
 
@@ -48,8 +47,7 @@ public class BeerInventoryServiceRestTemplateImpl implements BeerInventoryServic
 
         ResponseEntity<List<BeerInventoryDto>> responseEntity = restTemplate
                 .exchange(beerInventoryServiceHost + INVENTORY_PATH, HttpMethod.GET, null,
-                        new ParameterizedTypeReference<List<BeerInventoryDto>>() {
-                        }, beerId);
+                        new ParameterizedTypeReference<>() {}, beerId);
 
         //sum from inventory list
 

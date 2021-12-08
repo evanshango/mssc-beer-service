@@ -23,3 +23,6 @@ spring:
   cloud:
     compatibility-verifier:
       enabled: false
+logging:
+  level:
+    com.codewithevans: debug
