@@ -23,6 +23,10 @@ spring:
   cloud:
     compatibility-verifier:
       enabled: false
+    config:
+      enabled: false
+    discovery:
+      enabled: false
   cache:
     jcache:
       config: classpath:ehcache.xml
