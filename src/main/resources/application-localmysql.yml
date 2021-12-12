@@ -29,6 +29,9 @@ spring:
   cloud:
     config:
       enabled: false
+  artemis:
+    user: root
+    password: password
 logging:
   level:
     org:
