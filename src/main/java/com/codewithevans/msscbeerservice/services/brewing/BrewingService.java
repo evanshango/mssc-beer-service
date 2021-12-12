@@ -1,7 +1,7 @@
 package com.codewithevans.msscbeerservice.services.brewing;
 
 import com.codewithevans.msscbeerservice.config.JmsConfig;
-import com.codewithevans.msscbeerservice.events.BeerEvent;
+import com.codewithevans.msscbeerservice.events.BrewBeerEvent;
 import com.codewithevans.msscbeerservice.repositories.BeerRepository;
 import com.codewithevans.msscbeerservice.services.inventory.BeerInventoryService;
 import com.codewithevans.msscbeerservice.web.mappers.BeerMapper;
@@ -41,7 +41,10 @@ public class BrewingService {
             log.debug("Inventory is: " + quantityOnHand);
 
             if (beer.getMinOnHand() >= quantityOnHand) {
-                jmsTemplate.convertAndSend(JmsConfig.BREWING_REQUEST_QUEUE, new BeerEvent(beerMapper.beerToBeerDto(beer)));
+                jmsTemplate.convertAndSend(
+                        JmsConfig.BREWING_REQUEST_QUEUE,
+                        new BrewBeerEvent(beerMapper.beerToBeerDto(beer))
+                );
             }
         });
 

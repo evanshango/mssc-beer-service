@@ -1,7 +1,9 @@
 package com.codewithevans.msscbeerservice.events;
 
 import com.codewithevans.msscbeerservice.web.model.BeerDto;
+import lombok.NoArgsConstructor;
 
+@NoArgsConstructor
 public class BrewBeerEvent extends BeerEvent{
 
     private static final long serialVersionUID = 7997004878654992184L;
