@@ -1,4 +1,4 @@
-package com.codewithevans.msscbeerservice.services;
+package com.codewithevans.msscbeerservice.services.brewing;
 
 import com.codewithevans.msscbeerservice.config.JmsConfig;
 import com.codewithevans.msscbeerservice.events.BeerEvent;
