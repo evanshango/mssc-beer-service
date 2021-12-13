@@ -1,4 +1,4 @@
-package com.codewithevans.msscbeerservice.events;
+package com.codewithevans.common.events;
 
 import com.codewithevans.msscbeerservice.web.model.BeerDto;
 import lombok.NoArgsConstructor;
