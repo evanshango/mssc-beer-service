@@ -1,7 +1,7 @@
 package com.codewithevans.msscbeerservice.services.brewing;
 
 import com.codewithevans.msscbeerservice.config.JmsConfig;
-import com.codewithevans.common.events.BrewBeerEvent;
+import com.codewithevans.brewery.model.events.BrewBeerEvent;
 import com.codewithevans.msscbeerservice.repositories.BeerRepository;
 import com.codewithevans.msscbeerservice.services.inventory.BeerInventoryService;
 import com.codewithevans.msscbeerservice.web.mappers.BeerMapper;

@@ -2,7 +2,7 @@ package com.codewithevans.msscbeerservice.web.mappers;
 
 import com.codewithevans.msscbeerservice.domain.Beer;
 import com.codewithevans.msscbeerservice.services.inventory.BeerInventoryService;
-import com.codewithevans.msscbeerservice.web.model.BeerDto;
+import com.codewithevans.brewery.model.BeerDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 

@@ -2,7 +2,7 @@ package com.codewithevans.msscbeerservice.bootstrap;
 
 import com.codewithevans.msscbeerservice.domain.Beer;
 import com.codewithevans.msscbeerservice.repositories.BeerRepository;
-import com.codewithevans.msscbeerservice.web.model.BeerStyleEnum;
+import com.codewithevans.brewery.model.BeerStyleEnum;
 import lombok.RequiredArgsConstructor;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
@@ -10,7 +10,6 @@ import org.springframework.stereotype.Component;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.UUID;
 
 @Component
 @RequiredArgsConstructor

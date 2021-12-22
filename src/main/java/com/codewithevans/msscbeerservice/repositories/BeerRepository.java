@@ -1,7 +1,7 @@
 package com.codewithevans.msscbeerservice.repositories;
 
 import com.codewithevans.msscbeerservice.domain.Beer;
-import com.codewithevans.msscbeerservice.web.model.BeerStyleEnum;
+import com.codewithevans.brewery.model.BeerStyleEnum;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;

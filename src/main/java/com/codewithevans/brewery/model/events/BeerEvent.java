@@ -1,6 +1,6 @@
-package com.codewithevans.common.events;
+package com.codewithevans.brewery.model.events;
 
-import com.codewithevans.msscbeerservice.web.model.BeerDto;
+import com.codewithevans.brewery.model.BeerDto;
 import lombok.*;
 
 import java.io.Serializable;
